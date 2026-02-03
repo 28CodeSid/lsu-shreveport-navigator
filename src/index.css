@@ -2,95 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* LSUS Campus Navigator Design System
+   Colors: Purple (LSUS brand) + Gold accents + Clean neutrals
+   Typography: Modern, readable, mobile-first
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* LSUS Purple Brand */
+    --primary: 270 60% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 70% 60%;
+    
+    /* Gold Accent */
+    --accent: 45 90% 55%;
+    --accent-foreground: 270 60% 20%;
+    --accent-soft: 45 80% 70%;
+    
+    /* Backgrounds */
+    --background: 220 20% 97%;
+    --foreground: 270 30% 15%;
+    
+    /* Cards & Surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 270 30% 15%;
+    --card-elevated: 0 0% 100%;
+    
+    /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --popover-foreground: 270 30% 15%;
+    
+    /* Secondary & Muted */
+    --secondary: 270 15% 95%;
+    --secondary-foreground: 270 30% 25%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    
+    /* Semantic Colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 220 15% 88%;
+    --input: 220 15% 92%;
+    --ring: 270 60% 45%;
+    
+    /* Map-specific */
+    --map-building: 270 60% 45%;
+    --map-path: 270 50% 50%;
+    --map-selected: 45 90% 55%;
+    
+    /* Radius */
+    --radius: 0.75rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(270 30% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(270 30% 15% / 0.1), 0 2px 4px -2px hsl(270 30% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(270 30% 15% / 0.1), 0 4px 6px -4px hsl(270 30% 15% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(270 30% 15% / 0.1), 0 8px 10px -6px hsl(270 30% 15% / 0.1);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 270 30% 15%;
+    --sidebar-primary: 270 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 15% 95%;
+    --sidebar-accent-foreground: 270 30% 25%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 270 60% 45%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --primary: 270 60% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 70% 70%;
+    
+    --accent: 45 85% 60%;
+    --accent-foreground: 270 60% 10%;
+    
+    --background: 270 25% 8%;
+    --foreground: 220 20% 95%;
+    
+    --card: 270 20% 12%;
+    --card-foreground: 220 20% 95%;
+    --card-elevated: 270 18% 15%;
+    
+    --popover: 270 20% 12%;
+    --popover-foreground: 220 20% 95%;
+    
+    --secondary: 270 15% 18%;
+    --secondary-foreground: 220 15% 85%;
+    --muted: 270 15% 20%;
+    --muted-foreground: 220 10% 60%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 270 15% 22%;
+    --input: 270 15% 18%;
+    --ring: 270 60% 60%;
+    
+    --map-building: 270 60% 60%;
+    --map-path: 270 50% 60%;
+    --map-selected: 45 85% 60%;
+    
+    --sidebar-background: 270 20% 10%;
+    --sidebar-foreground: 220 20% 95%;
+    --sidebar-primary: 270 60% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 270 15% 18%;
+    --sidebar-accent-foreground: 220 15% 85%;
+    --sidebar-border: 270 15% 22%;
+    --sidebar-ring: 270 60% 60%;
   }
 }
 
@@ -100,6 +129,186 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Map Container */
+  .map-container {
+    @apply w-full h-full rounded-lg overflow-hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Building Marker */
+  .building-marker {
+    @apply w-8 h-8 rounded-full flex items-center justify-center;
+    background: hsl(var(--primary));
+    border: 3px solid white;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
+  }
+  
+  .building-marker:hover,
+  .building-marker.active {
+    transform: scale(1.15);
+    background: hsl(var(--accent));
+  }
+  
+  /* Search Input */
+  .search-input {
+    @apply w-full px-4 py-3 pl-12 rounded-xl bg-card border-0;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
+  }
+  
+  .search-input:focus {
+    box-shadow: var(--shadow-lg), 0 0 0 3px hsl(var(--primary) / 0.2);
+    outline: none;
+  }
+  
+  /* Bottom Sheet */
+  .bottom-sheet {
+    @apply fixed bottom-0 left-0 right-0 bg-card rounded-t-3xl;
+    box-shadow: 0 -10px 40px -5px hsl(270 30% 15% / 0.15);
+    transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  
+  .bottom-sheet-handle {
+    @apply w-12 h-1.5 bg-muted rounded-full mx-auto mt-3 mb-2;
+  }
+  
+  /* Category Pills */
+  .category-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all;
+    @apply bg-secondary text-secondary-foreground;
+  }
+  
+  .category-pill:hover,
+  .category-pill.active {
+    @apply bg-primary text-primary-foreground;
+  }
+  
+  /* Building Card */
+  .building-card {
+    @apply p-4 rounded-xl bg-card cursor-pointer transition-all;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .building-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  .building-card.selected {
+    @apply ring-2 ring-primary;
+  }
+  
+  /* Direction Line */
+  .direction-line {
+    stroke: hsl(var(--primary));
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 8 8;
+    animation: dash 1s linear infinite;
+  }
+  
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -16;
+    }
+  }
+  
+  /* Floating Action Button */
+  .fab {
+    @apply w-14 h-14 rounded-full flex items-center justify-center;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-lg);
+    transition: all 0.2s ease;
+  }
+  
+  .fab:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .fab:active {
+    transform: scale(0.95);
+  }
+  
+  /* Pulse Animation for Current Location */
+  .pulse-ring {
+    @apply absolute rounded-full;
+    background: hsl(var(--primary) / 0.3);
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+  
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}
+
+/* Leaflet Customizations */
+.leaflet-container {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: hsl(var(--muted));
+}
+
+.leaflet-popup-content-wrapper {
+  @apply rounded-xl p-0 overflow-hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
+
+.leaflet-popup-tip {
+  background: white;
+}
+
+.leaflet-control-zoom {
+  @apply border-0 overflow-hidden;
+  box-shadow: var(--shadow-md) !important;
+  border-radius: var(--radius) !important;
+}
+
+.leaflet-control-zoom a {
+  @apply bg-card text-foreground border-0;
+}
+
+.leaflet-control-zoom a:hover {
+  @apply bg-secondary;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  background: hsl(var(--muted-foreground) / 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }
