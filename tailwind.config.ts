@@ -7,8 +7,12 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1rem",
       screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
         "2xl": "1400px",
       },
     },
@@ -22,6 +26,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -31,6 +36,14 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -38,6 +51,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          soft: "hsl(var(--accent-soft))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -46,6 +60,12 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          elevated: "hsl(var(--card-elevated))",
+        },
+        map: {
+          building: "hsl(var(--map-building))",
+          path: "hsl(var(--map-path))",
+          selected: "hsl(var(--map-selected))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -58,32 +78,61 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 4px)",
+        "2xl": "calc(var(--radius) + 8px)",
+        "3xl": "1.5rem",
+      },
+      boxShadow: {
+        'card': 'var(--shadow-md)',
+        'card-hover': 'var(--shadow-lg)',
+        'elevated': 'var(--shadow-xl)',
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "slide-up": {
+          from: { transform: "translateY(100%)" },
+          to: { transform: "translateY(0)" },
+        },
+        "slide-down": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(100%)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "scale-in": {
+          from: { opacity: "0", transform: "scale(0.95)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        "bounce-subtle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-4px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-up": "slide-up 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+        "slide-down": "slide-down 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
+        "fade-in": "fade-in 0.2s ease-out",
+        "scale-in": "scale-in 0.2s ease-out",
+        "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
       },
     },
   },
